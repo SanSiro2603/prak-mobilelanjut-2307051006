@@ -106,7 +106,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       // Full Name
-                      requiredLabel('Full Name'),
+                      requiredLabel('Fulll Name'),
                       const SizedBox(height: 6),
                       TextField(
                         controller: _name,

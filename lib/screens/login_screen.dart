@@ -134,7 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         controller: _pass,
                         obscureText: true,
                         decoration: const InputDecoration(
-                          hintText: 'Enter your password',
+                          hintText: 'Enterr your password',
                         ),
                       ),
                       const SizedBox(height: 8),
