@@ -26,6 +26,15 @@ class _SignupScreenState extends State<SignupScreen> {
 
   @override
   Widget build(BuildContext context) {
+pertemuan-5
+    Widget requiredLabel(String text) => Row(
+      children: [
+        Text(text, style: const TextStyle(fontSize: 13)),
+        const Text(' *', style: TextStyle(color: Colors.red, fontSize: 13)),
+      ],
+    );
+
+
     // komponen kecil buat label + tanda *
     Widget requiredLabel(String text) => Row(
       children: [
@@ -35,6 +44,7 @@ class _SignupScreenState extends State<SignupScreen> {
     );
 
     // tombol biru dengan gradient (UI-only)
+master
     Widget primaryButton(String label, VoidCallback onTap) => GestureDetector(
       onTap: onTap,
       child: Container(
@@ -44,7 +54,11 @@ class _SignupScreenState extends State<SignupScreen> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(28),
           gradient: const LinearGradient(
+ pertemuan-5
+            colors: [Color(0xFF1E88FF), Color(0xFF207DFF)],
+=======
             colors: [Color(0xFF1E88FF), Color(0xFF2D70FF)],
+ master
           ),
           boxShadow: [
             BoxShadow(
@@ -68,16 +82,45 @@ class _SignupScreenState extends State<SignupScreen> {
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
+ pertemuan-5
+            padding: const EdgeInsets.symmetric(vertical: 24),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                // logo
+=======
             padding: const EdgeInsets.all(24),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Logo
+ master
                 Image.asset(
                   'assets/logo-mola.png',
                   height: 80,
                   fit: BoxFit.contain,
                 ),
+ pertemuan-5
+                const SizedBox(height: 18),
+
+                // judul
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 24),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Sign Up Now and Unlock the Power of JustDuit',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 14),
+
+                // form card
+
                 const SizedBox(height: 20),
 
                 const Text(
@@ -87,6 +130,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 const SizedBox(height: 20),
 
                 // Card Form
+ master
                 Container(
                   width: 360,
                   margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -105,19 +149,29 @@ class _SignupScreenState extends State<SignupScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+ pertemuan-5
+                      requiredLabel('Full Name'),
+                      const SizedBox(height: 6),
+                      TextField(
+                        controller: _name,
+
                       // Full Name
                       requiredLabel('Fulll Name'),
                       const SizedBox(height: 6),
                       TextField(
                         controller: _name,
                         textCapitalization: TextCapitalization.words,
+ master
                         decoration: const InputDecoration(
                           hintText: 'Enter your full name',
                         ),
                       ),
                       const SizedBox(height: 14),
 
+ pertemuan-5
+
                       // Email
+ master
                       requiredLabel('Email Address'),
                       const SizedBox(height: 6),
                       TextField(
@@ -129,19 +183,29 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                       const SizedBox(height: 14),
 
+ pertemuan-5
+=======
                       // Password
+ master
                       requiredLabel('Password'),
                       const SizedBox(height: 6),
                       TextField(
                         controller: _pass,
                         obscureText: true,
                         decoration: const InputDecoration(
+ pertemuan-5
+                          hintText: 'Enter your password',
+
                           hintText: 'Create a password',
+ master
                         ),
                       ),
                       const SizedBox(height: 14),
 
+ pertemuan-5
+
                       // Confirm Password
+ master
                       requiredLabel('Confirm Password'),
                       const SizedBox(height: 6),
                       TextField(
@@ -153,7 +217,15 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                       const SizedBox(height: 16),
 
-                      // Tombol Continue
+pertemuan-5
+                      primaryButton('Continue', () {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Sign Up Success')),
+                        );
+
+                        // langsung pindah ke login, hapus semua route sebelumnya
+
+                    // Tombol Continue
                       primaryButton('Continue', () {
                         // tampilkan snackbar sukses
                         ScaffoldMessenger.of(context).showSnackBar(
@@ -161,15 +233,21 @@ class _SignupScreenState extends State<SignupScreen> {
                         );
 
                         // pindah ke Sign In dan hapus semua route sebelumnya
+ master
                         Navigator.pushNamedAndRemoveUntil(
                           context,
                           LoginScreen.route,
                           (route) => false,
                         );
                       }),
+ pertemuan-5
+                      const SizedBox(height: 14),
+
+
                       const SizedBox(height: 12),
 
                       // Tombol balik ke login manual
+ master
                       Center(
                         child: TextButton(
                           onPressed: () => Navigator.pushReplacementNamed(
